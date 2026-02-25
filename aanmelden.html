@@ -10,8 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <!-- EmailJS SDK voor bevestigingsmail -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -234,19 +232,6 @@
       }
     }
 
-    // ============================================================
-    // EmailJS configuratie - Vul hier je eigen IDs in:
-    // 1. Maak een gratis account op https://www.emailjs.com/
-    // 2. Voeg een Email Service toe (bijv. Gmail)
-    // 3. Maak een Email Template aan met variabelen: {{voornaam}}, {{email}}
-    // 4. Vul de drie IDs hieronder in
-    // ============================================================
-    const EMAILJS_PUBLIC_KEY = 'EneaLOvNa2nBr1VUC';
-    const EMAILJS_SERVICE_ID = 'service_08mh125';
-    const EMAILJS_TEMPLATE_ID = 'template_b351nn7';
-
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-
     document.getElementById('aanmeldForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
@@ -265,17 +250,20 @@
           body: new URLSearchParams(formData).toString()
         });
 
-        // Stap 2: Bevestigingsmail versturen via EmailJS
-        if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
-          try {
-            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        // Stap 2: Contact toevoegen aan Brevo + bevestigingsmail
+        try {
+          await fetch('/.netlify/functions/brevo-signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
               voornaam: formData.get('voornaam'),
+              achternaam: formData.get('achternaam'),
               email: formData.get('email')
-            });
-          } catch (emailErr) {
-            console.log('Bevestigingsmail kon niet verstuurd worden:', emailErr);
-            // Niet blokkeren — aanmelding is al opgeslagen
-          }
+            })
+          });
+        } catch (brevoErr) {
+          console.log('Brevo-koppeling niet gelukt:', brevoErr);
+          // Niet blokkeren — aanmelding is al opgeslagen in Netlify
         }
 
         // Stap 3: Redirect naar bedankpagina
