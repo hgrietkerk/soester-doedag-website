@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soester DoeDag - Samen doen voor Soest</title>
+  <meta name="description" content="De Soester Diaconale DoeDag: twee keer per jaar zetten vrijwilligers zich in om mede-Soesters te helpen. Doe mee!">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.jpg" alt="Soester DoeDag Logo">
+      </a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu openen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="over-de-doedag.html">Over de DoeDag</a></li>
+        <li><a href="aanmelden.html" class="btn-nav">Meld je aan</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/groepsfoto.jpg" alt="Groepsfoto DoeDag vrijwilligers">
+    </div>
+    <div class="container hero-content">
+      <span class="date-badge">Zaterdag 11 april 2026</span>
+      <h1>Samen doen voor Soest</h1>
+      <p class="subtitle">De Soester Diaconale DoeDag</p>
+      <p>Op de DoeDag zetten zo'n 50 vrijwilligers zich in om mede-Soesters te helpen met praktische klussen, tuinwerk en sociale activiteiten. Doe je ook mee?</p>
+      <div class="hero-buttons">
+        <a href="aanmelden.html" class="btn btn-primary">Meld je aan</a>
+        <a href="over-de-doedag.html" class="btn btn-secondary">Meer informatie</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAT WE DOEN -->
+  <section class="what-we-do">
+    <div class="container">
+      <h2 class="section-title">Wat doen we op de DoeDag?</h2>
+      <p class="section-subtitle">Vrijwilligers helpen mede-Soesters met uiteenlopende projecten</p>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-img">
+            <img src="images/tuinwerk.jpg" alt="Tuinwerkzaamheden">
+          </div>
+          <div class="card-body">
+            <h3>Tuinen opknappen</h3>
+            <p>Van licht snoeiwerk en schoffelen tot het verwijderen van struiken en het aanleggen van hekwerk. We maken verwaarloosde tuinen weer mooi.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="images/schilderen.jpg" alt="Schilderen en klussen">
+          </div>
+          <div class="card-body">
+            <h3>Klussen in huis</h3>
+            <p>Kamers verven, kleine reparaties, lampen ophangen of opruimwerk. Met een paar paar handen maak je een groot verschil in iemands woning.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="images/verbinding.jpg" alt="Sociale activiteiten">
+          </div>
+          <div class="card-body">
+            <h3>Sociale projecten</h3>
+            <p>Gezelligheid en aandacht brengen aan mensen die dit minder vaak ervaren. Denk aan samen koken, wandelen, spelletjes of een uitje.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOE WERKT HET -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">Hoe werkt het?</h2>
+      <p class="section-subtitle">In vier simpele stappen ben je erbij</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Aanmelden</h3>
+          <p>Vul het aanmeldformulier in en geef je voorkeuren op. Alleen of als groep.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Teamindeling</h3>
+          <p>Present Soest stelt teams samen van 3 tot 5 vrijwilligers per project.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Voorbereiding</h3>
+          <p>Een week voor de DoeDag hoor je met wie je aan de slag gaat en waar.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Aan de slag!</h3>
+          <p>Op de DoeDag zelf ga je samen aan het werk. Eind van de dag sluiten we gezamenlijk af.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTO'S -->
+  <section class="gallery">
+    <div class="container">
+      <h2 class="section-title">Impressie van eerdere DoeDagen</h2>
+      <p class="section-subtitle">Een kleine greep uit wat we samen bereiken</p>
+      <div class="gallery-grid">
+        <img src="images/collage.jpg" alt="Collage van de DoeDag">
+        <img src="images/klussen-binnen.jpg" alt="Klussen in huis">
+        <img src="images/verven-kamer.jpg" alt="Kamer verven">
+        <img src="images/kind-paarden.jpg" alt="Sociale activiteit met dieren">
+        <img src="images/opruimen-buiten.jpg" alt="Opruimen buiten">
+        <img src="images/10-jaar-doedag.jpg" alt="10 jaar DoeDag viering">
+        <img src="images/tuin-opruimen.jpg" alt="Tuin opruimen">
+        <img src="images/speeltuin.jpg" alt="Tuin resultaat">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Doe mee op 11 april 2026!</h2>
+      <p>Schrijf je in en maak het verschil voor een mede-Soester. Iedereen is welkom, ook als je maar een ochtend kunt.</p>
+      <a href="aanmelden.html" class="btn btn-primary">Meld je nu aan</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Soester DoeDag">
+          <p>De Soester Diaconale DoeDag wordt georganiseerd door de PGS en EGS in samenwerking met Stichting Present Soest.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Pagina's</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="over-de-doedag.html">Over de DoeDag</a></li>
+            <li><a href="aanmelden.html">Aanmelden</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Organisatie</h4>
+          <p>PGS &amp; EGS Soest</p>
+          <p>In samenwerking met</p>
+          <p><strong>Stichting Present Soest</strong></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Soester DoeDag. Alle rechten voorbehouden.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Original source files (not needed for website)
+*.docx
+DoeDag Logo.jpg
+DoeDag-collage4-scaled.jpg
+DoeDag-Icon.png
+WhatsApp Image*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/

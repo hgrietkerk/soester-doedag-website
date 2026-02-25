@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aanmelden - Soester DoeDag</title>
+  <meta name="description" content="Meld je aan voor de Soester Diaconale DoeDag op 11 april 2026. Iedereen is welkom!">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.jpg" alt="Soester DoeDag Logo">
+      </a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menu openen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="over-de-doedag.html">Over de DoeDag</a></li>
+        <li><a href="aanmelden.html" class="btn-nav active">Meld je aan</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Aanmelden</h1>
+      <p>Soester DoeDag &mdash; zaterdag 11 april 2026</p>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <section class="form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <div class="form-intro">
+          <h2>Schrijf je in voor de DoeDag</h2>
+          <p>Vul onderstaand formulier in en we nemen contact met je op. De week voor de DoeDag hoor je in welk team je zit en aan welk project je gaat werken.</p>
+        </div>
+
+        <form name="doedag-aanmelding" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/bedankt.html">
+          <!-- Honeypot for spam -->
+          <p style="display:none">
+            <label>Niet invullen: <input name="bot-field"></label>
+          </p>
+
+          <!-- Persoonlijke gegevens -->
+          <div class="form-row">
+            <div class="form-group">
+              <label>Voornaam <span class="required">*</span></label>
+              <input type="text" name="voornaam" required>
+            </div>
+            <div class="form-group">
+              <label>Achternaam <span class="required">*</span></label>
+              <input type="text" name="achternaam" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>E-mail <span class="required">*</span></label>
+              <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label>Mobiel</label>
+              <input type="tel" name="mobiel">
+            </div>
+          </div>
+
+          <!-- Type aanmelding -->
+          <fieldset>
+            <legend>Ik geef mij op als</legend>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="type-aanmelding" value="individu" checked onchange="toggleConditional()">
+                Individu
+              </label>
+              <label>
+                <input type="radio" name="type-aanmelding" value="gezin" onchange="toggleConditional()">
+                Gezin
+              </label>
+              <label>
+                <input type="radio" name="type-aanmelding" value="groep" onchange="toggleConditional()">
+                Groep
+              </label>
+            </div>
+            <div class="conditional-field" id="gezin-groep-info">
+              <div class="form-group" style="margin-bottom:0">
+                <label>Met hoeveel zijn jullie en hebben jullie specifieke wensen?</label>
+                <textarea name="groep-info" rows="3"></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Voorkeuren BINNEN -->
+          <fieldset>
+            <legend>Praktische activiteiten BINNEN</legend>
+            <p style="color: var(--text-medium); font-size: 0.9rem; margin-bottom: 4px;">Selecteer zoveel mogelijk opties die je aanspreken</p>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="binnen[]" value="schilderen"> Schilderen</label>
+              <label><input type="checkbox" name="binnen[]" value="laminaat"> Laminaat leggen</label>
+              <label><input type="checkbox" name="binnen[]" value="behangen"> Behangen / afhalen behang</label>
+              <label><input type="checkbox" name="binnen[]" value="licht-kluswerk"> Eenvoudig / licht kluswerk</label>
+              <label><input type="checkbox" name="binnen[]" value="complex-kluswerk"> Complexere klussen / timmerwerk</label>
+              <label><input type="checkbox" name="binnen[]" value="schoonmaken"> Schoonmaken</label>
+              <label><input type="checkbox" name="binnen[]" value="opruimen"> Opruimen</label>
+            </div>
+            <div class="form-group" style="margin-top: 12px; margin-bottom: 0;">
+              <label>Anders, namelijk:</label>
+              <input type="text" name="binnen-anders">
+            </div>
+          </fieldset>
+
+          <!-- Voorkeuren BUITEN -->
+          <fieldset>
+            <legend>Praktische activiteiten BUITEN</legend>
+            <p style="color: var(--text-medium); font-size: 0.9rem; margin-bottom: 4px;">Selecteer zoveel mogelijk opties die je aanspreken</p>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="buiten[]" value="licht-tuinwerk"> Lichte tuinwerkzaamheden (opruimen, schoffelen, licht snoeiwerk)</label>
+              <label><input type="checkbox" name="buiten[]" value="zwaar-tuinwerk"> Zwaardere tuinwerkzaamheden (graafwerk, struiken verwijderen, groot snoeiwerk)</label>
+              <label><input type="checkbox" name="buiten[]" value="technisch-tuinwerk"> Technisch tuinwerk (timmeren, hekwerk, reparaties)</label>
+            </div>
+            <div class="form-group" style="margin-top: 12px; margin-bottom: 0;">
+              <label>Anders, namelijk:</label>
+              <input type="text" name="buiten-anders">
+            </div>
+          </fieldset>
+
+          <!-- Sociale activiteiten -->
+          <fieldset>
+            <legend>Sociale activiteiten</legend>
+            <p style="color: var(--text-medium); font-size: 0.9rem; margin-bottom: 4px;">Selecteer zoveel mogelijk opties die je aanspreken</p>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="sociaal[]" value="koken-bakken"> Koken / bakken</label>
+              <label><input type="checkbox" name="sociaal[]" value="wandelen"> Wandelen (eventueel met rolstoel)</label>
+              <label><input type="checkbox" name="sociaal[]" value="uitstapje"> Begeleiden uitstapje</label>
+              <label><input type="checkbox" name="sociaal[]" value="spelletjes"> Spelletjes doen</label>
+              <label><input type="checkbox" name="sociaal[]" value="creatief"> Creatieve activiteit</label>
+              <label><input type="checkbox" name="sociaal[]" value="koffie"> Koffie drinken</label>
+              <label><input type="checkbox" name="sociaal[]" value="kunstschilderen"> Kunstschilderen</label>
+              <label><input type="checkbox" name="sociaal[]" value="alleenstaande"> Activiteit met alleenstaande</label>
+            </div>
+            <div class="form-group" style="margin-top: 12px; margin-bottom: 0;">
+              <label>Anders, namelijk:</label>
+              <input type="text" name="sociaal-anders">
+            </div>
+          </fieldset>
+
+          <!-- Hoe gehoord -->
+          <fieldset>
+            <legend>Hoe heb je over de DoeDag gehoord?</legend>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="gehoord[]" value="eerder-meegedaan"> Heb al een keer eerder meegedaan</label>
+              <label><input type="checkbox" name="gehoord[]" value="kerk"> Via een van de kerken in Soest</label>
+              <label><input type="checkbox" name="gehoord[]" value="vrienden"> Via vrienden of kennissen</label>
+              <label><input type="checkbox" name="gehoord[]" value="soestercourant"> Bericht in Soestercourant</label>
+              <label><input type="checkbox" name="gehoord[]" value="social-media"> Sociale media</label>
+            </div>
+            <div class="form-group" style="margin-top: 12px; margin-bottom: 0;">
+              <label>Anders, namelijk:</label>
+              <input type="text" name="gehoord-anders">
+            </div>
+          </fieldset>
+
+          <!-- Opmerkingen -->
+          <div class="form-group">
+            <label>Aanvullende informatie / opmerkingen / interesse in een specifiek project</label>
+            <textarea name="opmerkingen" rows="4"></textarea>
+          </div>
+
+          <!-- Submit -->
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Verstuur aanmelding</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Soester DoeDag">
+          <p>De Soester Diaconale DoeDag wordt georganiseerd door de PGS en EGS in samenwerking met Stichting Present Soest.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Pagina's</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="over-de-doedag.html">Over de DoeDag</a></li>
+            <li><a href="aanmelden.html">Aanmelden</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Organisatie</h4>
+          <p>PGS &amp; EGS Soest</p>
+          <p>In samenwerking met</p>
+          <p><strong>Stichting Present Soest</strong></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Soester DoeDag. Alle rechten voorbehouden.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    function toggleConditional() {
+      const selected = document.querySelector('input[name="type-aanmelding"]:checked').value;
+      const conditionalField = document.getElementById('gezin-groep-info');
+      if (selected === 'gezin' || selected === 'groep') {
+        conditionalField.classList.add('visible');
+      } else {
+        conditionalField.classList.remove('visible');
+      }
+    }
+  </script>
+</body>
+</html>
