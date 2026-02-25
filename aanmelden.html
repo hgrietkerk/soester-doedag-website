@@ -49,11 +49,11 @@
           <p>Vul onderstaand formulier in en we nemen contact met je op. De week voor de DoeDag hoor je in welk team je zit en aan welk project je gaat werken.</p>
         </div>
 
-        <form name="doedag-aanmelding" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/bedankt.html">
-          <!-- Honeypot for spam -->
-          <p style="display:none">
-            <label>Niet invullen: <input name="bot-field"></label>
-          </p>
+        <form action="https://formspree.io/p/2945215437362691494/f/doedagAanmelding" method="POST">
+          <!-- Redirect na verzending -->
+          <input type="hidden" name="_next" value="https://YOUR_SITE.netlify.app/bedankt.html">
+          <!-- Formspree spam-bescherming -->
+          <input type="text" name="_gotcha" style="display:none">
 
           <!-- Persoonlijke gegevens -->
           <div class="form-row">
