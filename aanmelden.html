@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- EmailJS SDK voor bevestigingsmail -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -49,11 +51,11 @@
           <p>Vul onderstaand formulier in en we nemen contact met je op. De week voor de DoeDag hoor je in welk team je zit en aan welk project je gaat werken.</p>
         </div>
 
-        <form action="https://formspree.io/p/2945215437362691494/f/doedagAanmelding" method="POST">
-          <!-- Redirect na verzending -->
-          <input type="hidden" name="_next" value="https://soester-doedag.netlify.app/bedankt.html">
-          <!-- Formspree spam-bescherming -->
-          <input type="text" name="_gotcha" style="display:none">
+        <form name="doedag-aanmelding" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="aanmeldForm">
+          <!-- Honeypot spam-bescherming -->
+          <p style="display:none">
+            <label>Niet invullen: <input name="bot-field"></label>
+          </p>
 
           <!-- Persoonlijke gegevens -->
           <div class="form-row">
@@ -231,6 +233,61 @@
         conditionalField.classList.remove('visible');
       }
     }
+
+    // ============================================================
+    // EmailJS configuratie - Vul hier je eigen IDs in:
+    // 1. Maak een gratis account op https://www.emailjs.com/
+    // 2. Voeg een Email Service toe (bijv. Gmail)
+    // 3. Maak een Email Template aan met variabelen: {{voornaam}}, {{email}}
+    // 4. Vul de drie IDs hieronder in
+    // ============================================================
+    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';      // Account > API Keys
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';      // Email Services > Service ID
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';    // Email Templates > Template ID
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    document.getElementById('aanmeldForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Bezig met verzenden...';
+      submitBtn.disabled = true;
+
+      try {
+        // Stap 1: Formulier versturen naar Netlify Forms
+        const formData = new FormData(form);
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
+
+        // Stap 2: Bevestigingsmail versturen via EmailJS
+        if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+          try {
+            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+              voornaam: formData.get('voornaam'),
+              email: formData.get('email')
+            });
+          } catch (emailErr) {
+            console.log('Bevestigingsmail kon niet verstuurd worden:', emailErr);
+            // Niet blokkeren — aanmelding is al opgeslagen
+          }
+        }
+
+        // Stap 3: Redirect naar bedankpagina
+        window.location.href = '/bedankt.html';
+
+      } catch (err) {
+        console.error('Fout bij verzenden:', err);
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        alert('Er ging iets mis bij het versturen. Probeer het opnieuw.');
+      }
+    });
   </script>
 </body>
 </html>
