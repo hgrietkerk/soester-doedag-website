@@ -716,6 +716,33 @@ fieldset legend {
   font-weight: 600;
 }
 
+.partner-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: nowrap;
+  margin: 40px 0;
+  padding: 24px;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.partner-logos img {
+  height: 45px;
+  max-width: 140px;
+  object-fit: contain;
+  filter: grayscale(20%);
+  opacity: 0.85;
+  transition: all var(--transition);
+}
+
+.partner-logos img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
 /* ===== FOOTER ===== */
 footer {
   background: var(--green-dark);
