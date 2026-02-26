@@ -741,8 +741,8 @@ fieldset legend {
 }
 
 .partner-logos img {
-  height: 45px;
-  max-width: 140px;
+  height: 54px;
+  max-width: 168px;
   object-fit: contain;
   filter: grayscale(20%);
   opacity: 0.85;
