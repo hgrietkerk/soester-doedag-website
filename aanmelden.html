@@ -261,6 +261,20 @@
           body: new URLSearchParams(formData).toString()
         });
 
+        // Bevestigingsmail versturen via Brevo
+        try {
+          await fetch('/.netlify/functions/bevestigingsmail', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              voornaam: formData.get('Voornaam'),
+              email: formData.get('Email')
+            })
+          });
+        } catch (mailErr) {
+          console.warn('Bevestigingsmail niet verstuurd:', mailErr);
+        }
+
         // Redirect naar bedankpagina
         window.location.href = '/bedankt.html';
 
