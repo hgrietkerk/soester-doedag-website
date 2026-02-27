@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="images/groepsfoto.jpg" imagesrcset="images/groepsfoto-small.jpg 600w, images/groepsfoto.jpg 1200w" imagesizes="100vw">
 </head>
 <body>
 
@@ -35,7 +36,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="images/groepsfoto.jpg" alt="Groepsfoto DoeDag vrijwilligers">
+      <img src="images/groepsfoto.jpg" srcset="images/groepsfoto-small.jpg 600w, images/groepsfoto.jpg 1200w" sizes="100vw" alt="Groepsfoto DoeDag vrijwilligers" fetchpriority="high">
     </div>
     <div class="container hero-content">
       <span class="date-badge">Zaterdag 11 april 2026</span>
