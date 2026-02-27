@@ -59,22 +59,22 @@
           <div class="form-row">
             <div class="form-group">
               <label>Voornaam <span class="required">*</span></label>
-              <input type="text" name="voornaam" required>
+              <input type="text" name="Voornaam" required>
             </div>
             <div class="form-group">
               <label>Achternaam <span class="required">*</span></label>
-              <input type="text" name="achternaam" required>
+              <input type="text" name="Achternaam" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>E-mail <span class="required">*</span></label>
-              <input type="email" name="email" required>
+              <input type="email" name="Email" required>
             </div>
             <div class="form-group">
               <label>Mobiel</label>
-              <input type="tel" name="mobiel">
+              <input type="tel" name="Mobiel">
             </div>
           </div>
 
@@ -83,22 +83,22 @@
             <legend>Ik geef mij op als</legend>
             <div class="radio-group">
               <label>
-                <input type="radio" name="type-aanmelding" value="individu" checked onchange="toggleConditional()">
+                <input type="radio" name="Soort aanmelding" value="individu" checked onchange="toggleConditional()">
                 Individu
               </label>
               <label>
-                <input type="radio" name="type-aanmelding" value="gezin" onchange="toggleConditional()">
+                <input type="radio" name="Soort aanmelding" value="gezin" onchange="toggleConditional()">
                 Gezin
               </label>
               <label>
-                <input type="radio" name="type-aanmelding" value="groep" onchange="toggleConditional()">
+                <input type="radio" name="Soort aanmelding" value="groep" onchange="toggleConditional()">
                 Groep
               </label>
             </div>
             <div class="conditional-field" id="gezin-groep-info">
               <div class="form-group" style="margin-bottom:0">
                 <label>Met hoeveel zijn jullie en hebben jullie specifieke wensen?</label>
-                <textarea name="groep-info" rows="3"></textarea>
+                <textarea name="Met hoeveel zijn jullie en hebben jullie specifieke wensen?" rows="3"></textarea>
               </div>
             </div>
           </fieldset>
@@ -108,17 +108,17 @@
             <legend>Praktische activiteiten BINNEN</legend>
             <p style="color: var(--text-medium); font-size: 0.9rem; margin-bottom: 4px;">Selecteer zoveel mogelijk opties die je aanspreken</p>
             <div class="checkbox-group">
-              <label><input type="checkbox" name="binnen" value="schilderen"> Schilderen</label>
-              <label><input type="checkbox" name="binnen" value="laminaat"> Laminaat leggen</label>
-              <label><input type="checkbox" name="binnen" value="behangen"> Behangen / afhalen behang</label>
-              <label><input type="checkbox" name="binnen" value="licht-kluswerk"> Eenvoudig / licht kluswerk</label>
-              <label><input type="checkbox" name="binnen" value="complex-kluswerk"> Complexere klussen / timmerwerk</label>
-              <label><input type="checkbox" name="binnen" value="schoonmaken"> Schoonmaken</label>
-              <label><input type="checkbox" name="binnen" value="opruimen"> Opruimen</label>
+              <label><input type="checkbox" name="Praktische activiteiten BINNEN" value="schilderen"> Schilderen</label>
+              <label><input type="checkbox" name="Praktische activiteiten BINNEN" value="laminaat"> Laminaat leggen</label>
+              <label><input type="checkbox" name="Praktische activiteiten BINNEN" value="behangen"> Behangen / afhalen behang</label>
+              <label><input type="checkbox" name="Praktische activiteiten BINNEN" value="licht-kluswerk"> Eenvoudig / licht kluswerk</label>
+              <label><input type="checkbox" name="Praktische activiteiten BINNEN" value="complex-kluswerk"> Complexere klussen / timmerwerk</label>
+              <label><input type="checkbox" name="Praktische activiteiten BINNEN" value="schoonmaken"> Schoonmaken</label>
+              <label><input type="checkbox" name="Praktische activiteiten BINNEN" value="opruimen"> Opruimen</label>
             </div>
             <div class="form-group" style="margin-top: 12px; margin-bottom: 0;">
               <label>Anders, namelijk:</label>
-              <input type="text" name="binnen-anders">
+              <input type="text" name="Binnen-anders">
             </div>
           </fieldset>
 
@@ -127,13 +127,13 @@
             <legend>Praktische activiteiten BUITEN</legend>
             <p style="color: var(--text-medium); font-size: 0.9rem; margin-bottom: 4px;">Selecteer zoveel mogelijk opties die je aanspreken</p>
             <div class="checkbox-group">
-              <label><input type="checkbox" name="buiten" value="licht-tuinwerk"> Lichte tuinwerkzaamheden (opruimen, schoffelen, licht snoeiwerk)</label>
-              <label><input type="checkbox" name="buiten" value="zwaar-tuinwerk"> Zwaardere tuinwerkzaamheden (graafwerk, struiken verwijderen, groot snoeiwerk)</label>
-              <label><input type="checkbox" name="buiten" value="technisch-tuinwerk"> Technisch tuinwerk (timmeren, hekwerk, reparaties)</label>
+              <label><input type="checkbox" name="Praktische activiteiten BUITEN" value="licht-tuinwerk"> Lichte tuinwerkzaamheden (opruimen, schoffelen, licht snoeiwerk)</label>
+              <label><input type="checkbox" name="Praktische activiteiten BUITEN" value="zwaar-tuinwerk"> Zwaardere tuinwerkzaamheden (graafwerk, struiken verwijderen, groot snoeiwerk)</label>
+              <label><input type="checkbox" name="Praktische activiteiten BUITEN" value="technisch-tuinwerk"> Technisch tuinwerk (timmeren, hekwerk, reparaties)</label>
             </div>
             <div class="form-group" style="margin-top: 12px; margin-bottom: 0;">
               <label>Anders, namelijk:</label>
-              <input type="text" name="buiten-anders">
+              <input type="text" name="Buiten-anders">
             </div>
           </fieldset>
 
@@ -142,18 +142,18 @@
             <legend>Sociale activiteiten</legend>
             <p style="color: var(--text-medium); font-size: 0.9rem; margin-bottom: 4px;">Selecteer zoveel mogelijk opties die je aanspreken</p>
             <div class="checkbox-group">
-              <label><input type="checkbox" name="sociaal" value="koken-bakken"> Koken / bakken</label>
-              <label><input type="checkbox" name="sociaal" value="wandelen"> Wandelen (eventueel met rolstoel)</label>
-              <label><input type="checkbox" name="sociaal" value="uitstapje"> Begeleiden uitstapje</label>
-              <label><input type="checkbox" name="sociaal" value="spelletjes"> Spelletjes doen</label>
-              <label><input type="checkbox" name="sociaal" value="creatief"> Creatieve activiteit</label>
-              <label><input type="checkbox" name="sociaal" value="koffie"> Koffie drinken</label>
-              <label><input type="checkbox" name="sociaal" value="kunstschilderen"> Kunstschilderen</label>
-              <label><input type="checkbox" name="sociaal" value="alleenstaande"> Activiteit met alleenstaande</label>
+              <label><input type="checkbox" name="Sociale activiteiten" value="koken-bakken"> Koken / bakken</label>
+              <label><input type="checkbox" name="Sociale activiteiten" value="wandelen"> Wandelen (eventueel met rolstoel)</label>
+              <label><input type="checkbox" name="Sociale activiteiten" value="uitstapje"> Begeleiden uitstapje</label>
+              <label><input type="checkbox" name="Sociale activiteiten" value="spelletjes"> Spelletjes doen</label>
+              <label><input type="checkbox" name="Sociale activiteiten" value="creatief"> Creatieve activiteit</label>
+              <label><input type="checkbox" name="Sociale activiteiten" value="koffie"> Koffie drinken</label>
+              <label><input type="checkbox" name="Sociale activiteiten" value="kunstschilderen"> Kunstschilderen</label>
+              <label><input type="checkbox" name="Sociale activiteiten" value="alleenstaande"> Activiteit met alleenstaande</label>
             </div>
             <div class="form-group" style="margin-top: 12px; margin-bottom: 0;">
               <label>Anders, namelijk:</label>
-              <input type="text" name="sociaal-anders">
+              <input type="text" name="Sociaal-anders">
             </div>
           </fieldset>
 
@@ -161,22 +161,22 @@
           <fieldset>
             <legend>Hoe heb je over de DoeDag gehoord?</legend>
             <div class="checkbox-group">
-              <label><input type="checkbox" name="gehoord" value="eerder-meegedaan"> Heb al een keer eerder meegedaan</label>
-              <label><input type="checkbox" name="gehoord" value="kerk"> Via een van de kerken in Soest</label>
-              <label><input type="checkbox" name="gehoord" value="vrienden"> Via vrienden of kennissen</label>
-              <label><input type="checkbox" name="gehoord" value="soestercourant"> Bericht in Soestercourant</label>
-              <label><input type="checkbox" name="gehoord" value="social-media"> Sociale media</label>
+              <label><input type="checkbox" name="Hoe heb je over de DoeDag gehoord?" value="eerder-meegedaan"> Heb al een keer eerder meegedaan</label>
+              <label><input type="checkbox" name="Hoe heb je over de DoeDag gehoord?" value="kerk"> Via een van de kerken in Soest</label>
+              <label><input type="checkbox" name="Hoe heb je over de DoeDag gehoord?" value="vrienden"> Via vrienden of kennissen</label>
+              <label><input type="checkbox" name="Hoe heb je over de DoeDag gehoord?" value="soestercourant"> Bericht in Soestercourant</label>
+              <label><input type="checkbox" name="Hoe heb je over de DoeDag gehoord?" value="social-media"> Sociale media</label>
             </div>
             <div class="form-group" style="margin-top: 12px; margin-bottom: 0;">
               <label>Anders, namelijk:</label>
-              <input type="text" name="gehoord-anders">
+              <input type="text" name="Gehoord-anders">
             </div>
           </fieldset>
 
           <!-- Opmerkingen -->
           <div class="form-group">
             <label>Aanvullende informatie / opmerkingen / interesse in een specifiek project</label>
-            <textarea name="opmerkingen" rows="4"></textarea>
+            <textarea name="Aanvullende informatie / opmerkingen" rows="4"></textarea>
           </div>
 
           <!-- Submit -->
@@ -223,7 +223,7 @@
     }
 
     function toggleConditional() {
-      const selected = document.querySelector('input[name="type-aanmelding"]:checked').value;
+      const selected = document.querySelector('input[name="Soort aanmelding"]:checked').value;
       const conditionalField = document.getElementById('gezin-groep-info');
       if (selected === 'gezin' || selected === 'groep') {
         conditionalField.classList.add('visible');
@@ -244,6 +244,15 @@
       try {
         const formData = new FormData(form);
         formData.append('form-name', 'doedag-aanmelding');
+
+        // Checkbox-groepen samenvoegen tot komma-gescheiden tekst
+        ['Praktische activiteiten BINNEN', 'Praktische activiteiten BUITEN', 'Sociale activiteiten', 'Hoe heb je over de DoeDag gehoord?'].forEach(name => {
+          const values = formData.getAll(name);
+          formData.delete(name);
+          if (values.length > 0) {
+            formData.append(name, values.join(', '));
+          }
+        });
 
         // Formulier versturen naar Netlify Forms
         await fetch('/', {
